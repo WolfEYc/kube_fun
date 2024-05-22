@@ -8,7 +8,7 @@ metadata:
 spec:
   rules:
   - host: redis.wolfeydev.com
-    http:
+    tcp:
       paths:
       - pathType: ImplementationSpecific
         backend:
