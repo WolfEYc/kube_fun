@@ -69,8 +69,7 @@ kind: ConfigMap
 metadata:
   name: cloudflared
 data:
-  config.yaml: |
-# Name of the tunnel you want to run
+  config.yaml:
     tunnel: stormtrooper-tunnel
     credentials-file: /etc/cloudflared/creds/credentials.json
     # Serves the metrics server under /metrics and the readiness server under /ready
