@@ -7,9 +7,10 @@ spec:
   - host: redis.wolfeydev.com
     http:
       paths:
-      - path: /
-        backend:
-          service:
-            name: redis-service
-            port:
-              number: 6379
+      - pathType: ImplementationSpecific
+        path: /
+          backend:
+            service:
+              name: redis-service
+              port:
+                number: 6379
