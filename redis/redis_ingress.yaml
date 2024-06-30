@@ -11,4 +11,5 @@ spec:
         backend:
           service:
             name: redis-service
-            port: 6739
+            port:
+              number: 6379
