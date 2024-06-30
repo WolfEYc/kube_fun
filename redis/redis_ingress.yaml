@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: redis-ingress
@@ -8,7 +8,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: ImplementationSpecific
         backend:
-          serviceName: redis-service
-          servicePort: 6739
+          service:
+            name: redis-service
+            port: 6739
