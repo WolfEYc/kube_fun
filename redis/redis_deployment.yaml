@@ -19,4 +19,4 @@ spec:
         - containerPort: 6379
         env:
         - name: REDIS_PASSWORD
-          value: "password123"
+          value: "ENTER_YOUR_PASSWORD"
