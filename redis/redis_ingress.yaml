@@ -1,16 +1,13 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: gateway.networking.k8s.io/v1
+kind: TCPRoute
 metadata:
-  name: redis-ingress
+  name: redis-gateway
 spec:
+parentRefs:
+  - name: example-gateway
+  hostnames:
+  - "redis.example.com"
   rules:
-  - host: redis.wolfeydev.com
-    http:
-      paths:
-      - pathType: ImplementationSpecific
-        path: /
-        backend:
-          service:
-            name: redis-service
-            port:
-              number: 6379
+  - backendRefs:
+    - name: redis-service
+      port: 6379
