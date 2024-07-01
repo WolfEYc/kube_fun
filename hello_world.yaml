@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: paulbouwer/hello-kubernetes
+        image: paulbouwer/hello-kubernetes:1.10
         ports: 
         - containerPort: 80
 ---
