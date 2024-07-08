@@ -1,0 +1,17 @@
+# webhookrelay_cr.yaml
+apiVersion: forward.webhookrelay.com/v1
+kind: WebhookRelayForward
+metadata:
+  name: keel-forward
+spec:
+  buckets:
+  - name: github-to-keel
+    inputs:
+    - name: github-endpoint
+      description: "Public endpoint"
+      responseBody: "OK"
+      responseStatusCode: 200
+    outputs:
+    - name: keel
+      destination: http://keel:9300/v1/webhooks/github
+      internal: true
