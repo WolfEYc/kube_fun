@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keel-service
+spec:
+  selector:
+    app: keel
+  ports:
+  - name: http
+    protocol: TCP
+    port: 9300
+    targetPort: 9300
+  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keel-ingress
+spec:
+  rules:
+  - host: "keel.wolfeydev.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: keel-service
+            port:
+              number: 9300
