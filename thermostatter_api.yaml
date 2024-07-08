@@ -40,7 +40,7 @@ metadata:
   name: thermostatter-api-ingress
 spec:
   rules:
-  - host: "hello.wolfeydev.com"
+  - host: "thermostatter-api.wolfeydev.com"
     http:
       paths:
       - pathType: Prefix
