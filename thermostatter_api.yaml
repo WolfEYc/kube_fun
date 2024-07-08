@@ -6,6 +6,7 @@ metadata:
     name: "thermostatter-api"
   annotations:
     keel.sh/policy: all
+    keel.sh/approvals: "1"
 spec:
   replicas: 1
   selector:
