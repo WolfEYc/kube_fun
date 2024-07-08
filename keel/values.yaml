@@ -2,3 +2,6 @@ basicauth:
   enabled: true
   user: "wolfey"
   password: "Pie12345"
+
+webhook:
+  enabled: true
