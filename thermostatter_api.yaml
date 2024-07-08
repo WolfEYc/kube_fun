@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: thermostatter-api
+  labels: 
+    name: "thermostatter-api"
   annotations:
     keel.sh/policy: all
 spec:
