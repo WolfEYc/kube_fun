@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: thermostatter-api
   annotations:
-    keel.sh/policy: force
+    keel.sh/policy: all
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: thermostatter-api
-        image: ghcr.io/wolfeyc/thermostatter-api:latest
+        image: ghcr.io/wolfeyc/thermostatter-api:0.1.0
         ports: 
         - containerPort: 8080
       imagePullSecrets:
