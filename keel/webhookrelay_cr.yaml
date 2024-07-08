@@ -13,5 +13,5 @@ spec:
       responseStatusCode: 200
     outputs:
     - name: keel
-      destination: http://keel:9300/v1/webhooks/github
+      destination: http://keel.wolfeydev.com/v1/webhooks/github
       internal: true
