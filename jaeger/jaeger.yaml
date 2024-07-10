@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-namespace: observability
 metadata:
   name: jaeger-ingress
+  namespace: observability
 spec:
   rules:
   - host: "jaeger.wolfeydev.com"
