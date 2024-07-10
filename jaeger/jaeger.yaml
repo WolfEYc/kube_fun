@@ -12,6 +12,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: jaeger-service
+            name: jaeger-query
             port:
-              number: 8080
+              number: 80
