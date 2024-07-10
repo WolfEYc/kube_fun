@@ -1,7 +1,15 @@
 basicauth:
   enabled: true
-  user: "wolfey"
-  password: "Pie12345"
+  user: 
+    valueFrom:
+      secretKeyRef:
+        name: wolfey-login
+        key: username
+  password: 
+    valueFrom:
+      secretKeyRef:
+        name: wolfey-login
+        key: password
 
 webhook:
   enabled: true
