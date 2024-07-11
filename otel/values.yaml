@@ -90,7 +90,7 @@ configMap:
 config:
   exporters:
     otlp:
-      endpoint: jaeger-collector:4317
+      endpoint: jaeger-collector:4318
       tls:
         insecure: true
   extensions:
