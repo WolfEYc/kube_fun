@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thermostatter-api-config
+data:
+  OTEL_EXPORTER_OTLP_ENDPOINT: "https://otel-collector.wolfeydev.com"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,9 +26,12 @@ spec:
     spec:
       containers:
       - name: thermostatter-api
-        image: ghcr.io/wolfeyc/thermostatter-api:0.1.0
+        image: ghcr.io/wolfeyc/thermostatter-api:0.1.7
         ports: 
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: thermostatter-api-config
       imagePullSecrets:
         - name: github-container-registry
 ---
