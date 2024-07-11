@@ -145,7 +145,6 @@ config:
           - batch
         receivers:
           - otlp
-          - jaeger
       metrics:
         exporters:
           - debug
