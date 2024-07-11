@@ -89,7 +89,10 @@ configMap:
 # For example, {{ REDACTED_EMAIL }} becomes {{` {{ REDACTED_EMAIL }} `}}.
 config:
   exporters:
-    debug: {}
+    otlp:
+      endpoint: jaeger-collector:4317
+      tls:
+        insecure: true
   extensions:
     # The health_check extension is mandatory for this chart.
     # Without the health_check extension the collector will fail the readiness and liveliness probes.
