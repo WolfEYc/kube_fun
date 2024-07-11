@@ -154,7 +154,6 @@ config:
         receivers:
           - otlp
           - prometheus
-          - jaeger
       traces:
         exporters:
           - debug
