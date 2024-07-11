@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jaeger-ui-ingress
+  name: otel-collector-ingress
   namespace: observability
 spec:
   rules:
-  - host: "jaeger.wolfeydev.com"
+  - host: "otel-collector.wolfeydev.com"
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: jaeger-query
+            name: otel-collector-opentelemetry-collector
             port:
-              number: 80
+              number: 4318
