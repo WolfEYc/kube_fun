@@ -15,3 +15,21 @@ spec:
             name: jaeger-query
             port:
               number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jaeger-collector-ingress
+  namespace: observability
+spec:
+  rules:
+  - host: "jaeger-collector.wolfeydev.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: jaeger-collector
+            port:
+              number: 4318
