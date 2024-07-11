@@ -89,10 +89,8 @@ configMap:
 # For example, {{ REDACTED_EMAIL }} becomes {{` {{ REDACTED_EMAIL }} `}}.
 config:
   exporters:
-    otlp:
-      endpoint: jaeger-collector:4317
-      tls:
-        insecure: true
+    otlphttp:
+      endpoint: https://jaeger-collector.wolfeydev.com
   extensions:
     # The health_check extension is mandatory for this chart.
     # Without the health_check extension the collector will fail the readiness and liveliness probes.
@@ -157,6 +155,7 @@ config:
       traces:
         exporters:
           - debug
+          - otlphttp
         processors:
           - memory_limiter
           - batch
