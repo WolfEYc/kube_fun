@@ -90,7 +90,7 @@ configMap:
 config:
   exporters:
     otlp:
-      endpoint: jaeger-collector:4318
+      endpoint: jaeger-collector:4317
       tls:
         insecure: true
   extensions:
@@ -145,6 +145,7 @@ config:
           - batch
         receivers:
           - otlp
+          - jaeger
       metrics:
         exporters:
           - debug
@@ -154,6 +155,7 @@ config:
         receivers:
           - otlp
           - prometheus
+          - jaeger
       traces:
         exporters:
           - debug
