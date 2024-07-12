@@ -90,7 +90,7 @@ configMap:
 config:
   exporters:
     otlp:
-      endpoint: jaeger-collector:4317
+      endpoint: signoz-otel-collector:4317
       tls:
         insecure: true
   extensions:
@@ -140,6 +140,7 @@ config:
       logs:
         exporters:
           - debug
+          - otlp
         processors:
           - memory_limiter
           - batch
@@ -148,6 +149,7 @@ config:
       metrics:
         exporters:
           - debug
+          - otlp
         processors:
           - memory_limiter
           - batch
