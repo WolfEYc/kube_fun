@@ -26,20 +26,20 @@ spec:
           - name: OTEL_EXPORTER_OTLP_ENDPOINT
             value: "https://otel-collector.wolfeydev.com"
           - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: wolfey-login
-                  key: username
+            valueFrom:
+              secretKeyRef:
+                name: wolfey-login
+                key: username
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: wolfey-login
                 key: password
           - name: AUTH_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: jwt
-                  key: private
+            valueFrom:
+              secretKeyRef:
+                name: jwt
+                key: private
           - name: DATABASE_URL
             value: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-service:5432/postgres
       imagePullSecrets:
