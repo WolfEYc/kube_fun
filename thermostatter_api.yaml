@@ -43,7 +43,7 @@ spec:
               name: jwt
               key: private
         - name: DATABASE_URL
-          value: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-service:5432/postgres
+          value: postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres-service:5432/postgres
       imagePullSecrets:
         - name: github-container-registry
 ---
