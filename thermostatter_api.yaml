@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: thermostatter-api
-        image: ghcr.io/wolfeyc/thermostatter-api:latest
+        image: ghcr.io/wolfeyc/thermostatter-api:0.2.0
         ports: 
         - containerPort: 8080
         env:
