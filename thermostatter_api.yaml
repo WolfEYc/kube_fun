@@ -22,7 +22,7 @@ spec:
         image: ghcr.io/wolfeyc/thermostatter-api:0.1.7
         ports: 
         - containerPort: 8080
-      - env:
+        env:
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
           value: "https://otel-collector.wolfeydev.com"
         - name: POSTGRES_USER
