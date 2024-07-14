@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: thermostatter-api
-        image: ghcr.io/wolfeyc/thermostatter-api:0.2.0
+        image: ghcr.io/wolfeyc/thermostatter-api:0.2.1
         ports: 
         - containerPort: 8080
         env:
@@ -27,23 +27,16 @@ spec:
           value: PROD
         - name: OTEL_EXPORTER_OTLP_ENDPOINT
           value: "https://otel-collector.wolfeydev.com"
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: wolfey-login
-              key: username
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: wolfey-login
-              key: password
         - name: AUTH_SECRET_KEY
           valueFrom:
             secretKeyRef:
               name: jwt
               key: private
         - name: DATABASE_URL
-          value: postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres-service:5432/postgres
+          valueFrom:
+            secretKeyRef:
+              name: thermostatter-con-str
+              key: DATABASE_URL
       imagePullSecrets:
         - name: github-container-registry
 ---
