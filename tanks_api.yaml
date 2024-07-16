@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: tanks-api
-        image: ghcr.io/jana-tt/tanks_project_2:0.1.0
+        image: ghcr.io/jana-tt/tank_project_2:0.1.0
         ports: 
         - containerPort: 8000
         env:
