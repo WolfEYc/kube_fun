@@ -28,7 +28,7 @@ spec:
               name: janatt-pg
               key: DATABASE_PASSWORD
       imagePullSecrets:
-        - name: github-container-registry
+        - name: jana-ghcr
 ---
 apiVersion: v1
 kind: Service
