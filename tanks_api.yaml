@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tanks-api
+  labels: 
+    name: "tanks-api"
+  annotations:
+    keel.sh/policy: all
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tanks-api
+  template:
+    metadata:
+      labels:
+        app: tanks-api
+    spec:
+      containers:
+      - name: tanks-api
+        image: ghcr.io/jana-tt/tanks_project_2:0.1.0
+        ports: 
+        - containerPort: 8000
+        env:
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: janatt-pg
+              key: DATABASE_PASSWORD
+      imagePullSecrets:
+        - name: github-container-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tanks-api-service
+spec:
+  selector:
+    app: tanks-api
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8000
+    targetPort: 8000
+  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tanks-api-ingress
+spec:
+  rules:
+  - host: "tanks-api.wolfeydev.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: tanks-api-service
+            port:
+              number: 8000
