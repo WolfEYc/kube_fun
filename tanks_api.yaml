@@ -27,6 +27,8 @@ spec:
             secretKeyRef:
               name: janatt-pg
               key: DATABASE_PASSWORD
+      - name: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: "https://otel-collector.wolfeydev.com"
       imagePullSecrets:
         - name: jana-ghcr
 ---
